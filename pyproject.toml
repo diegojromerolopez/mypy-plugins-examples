@@ -1,0 +1,35 @@
+[project]
+name = "mypy-pure-examples"
+version = "0.1.0"
+description = "Example repository demonstrating the mypy-pure plugin for enforcing function purity in Python"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Diego J. Romero-Lopez" }
+]
+keywords = ["mypy", "type-checking", "purity", "functional-programming"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Quality Assurance",
+]
+dependencies = [
+    "mypy>=1.19.0",
+    "mypy_pure@git+https://github.com/diegojromerolopez/mypy-pure#egg=main",
+    "mypy_raise@git+https://github.com/diegojromerolopez/mypy-raise#egg=main",
+    "returns"
+]
+
+[tool.mypy]
+plugins = [
+    "returns.contrib.mypy.returns_plugin",
+    "mypy_pure.plugin",
+    "mypy_raise.plugin",
+]
